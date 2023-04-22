@@ -7,4 +7,4 @@ jobs:
       - name: Print 1
         run: echo Hello Actions
       - name: Print 2
-        run: echo I've been waiting for you
+        run: echo Ive been waiting for you

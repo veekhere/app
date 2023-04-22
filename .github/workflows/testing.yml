@@ -1,0 +1,12 @@
+name: Test App
+on: push
+jobs:
+  testing:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Karma tests
+        run: npm run test

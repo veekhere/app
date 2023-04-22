@@ -14,14 +14,9 @@ jobs:
     runs-on: ubuntu-20.04
     needs: testing
     steps:
-      - name: Enable npx
-        uses: mikeal/npx@1.0.0
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install dependencies
         run: npm ci
       - name: Check linting on errors
-        # run: npx prettier --loglevel error --check .
-        run: |
-          pwd
-          ls -a
+        run: node_modules/.bin/prettier --loglevel error --check .

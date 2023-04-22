@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
     "husky": "^8.0.3",
-    "npx": "^10.2.2",
     "prettier": "^2.8.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

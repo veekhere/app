@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "npx prettier --loglevel error --check ."
+    "lint": "prettier --loglevel error --check ."
   },
   "private": true,
   "dependencies": {

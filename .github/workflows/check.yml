@@ -19,4 +19,4 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Check linting on errors
-        run: node_modules/.bin/prettier --loglevel error --check .
+        run: ./node_modules/.bin/prettier --loglevel error --check .

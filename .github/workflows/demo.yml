@@ -1,0 +1,10 @@
+name: Demo Workflow
+on: workflow_dispatch
+jobs:
+  my_workflow:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Print 1
+        run: Hello Actions
+      - name: Print 2
+        run: I've been waiting for you

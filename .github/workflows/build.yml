@@ -49,7 +49,7 @@ jobs:
       - name: Lint files
         run: npm run lint
 
-  deploy:
+  build:
     strategy:
       matrix:
         node:
@@ -84,5 +84,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy
-        run: echo Deploying...
+      - name: Get artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: dist
+          name: app_node-${{ matrix.node }}_${{ matrix.os }}

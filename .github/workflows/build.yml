@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - master
-    # paths-ignore:
-    # - '.github/workflows/*'
+    paths-ignore:
+      - '.github/workflows/*'
 
 jobs:
   test:
@@ -51,8 +51,6 @@ jobs:
           - 18
         os:
           - ubuntu-20.04
-          - macos-latest
-          - windows-latest
     runs-on: ${{ matrix.os }}
     needs:
       - test

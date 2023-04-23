@@ -50,13 +50,28 @@ jobs:
         run: npm run lint
 
   deploy:
-    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node:
+          - 14
+          - 16
+          - 18
+        os:
+          - ubuntu-20.04
+          - macos-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
     needs:
       - test
       - lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
 
       - name: Cache
         uses: actions/cache@v3

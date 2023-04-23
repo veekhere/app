@@ -1,4 +1,4 @@
-name: Deploy
+name: Build
 on:
   push:
     branches:
@@ -7,12 +7,6 @@ on:
     # - '.github/workflows/*'
 
 jobs:
-  mock:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Mock job
-        run: echo mock
-
   test:
     runs-on: ubuntu-20.04
     steps:
@@ -84,8 +78,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Get artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           path: dist
           name: app_node-${{ matrix.node }}_${{ matrix.os }}
+
+      - name: Get artifact
+        uses: actions/download-artifact@v3

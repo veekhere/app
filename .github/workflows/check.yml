@@ -1,22 +1,27 @@
 name: Check app
 on: push
 jobs:
-  # testing:
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     - name: Install dependencies
-  #       run: npm ci
-  #     - name: Run Karma tests
-  #       run: npm run test
-  linting:
+  testing:
     runs-on: ubuntu-20.04
-    # needs: testing
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Install dependencies
         run: npm ci
-      - name: Check linting on errors
+
+      - name: Run Karma tests
+        run: npm run test
+
+  linting:
+    runs-on: ubuntu-20.04
+    needs: testing
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint files
         run: npm run lint

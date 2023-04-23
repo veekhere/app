@@ -61,6 +61,7 @@ jobs:
           - macos-latest
           - windows-latest
     runs-on: ${{ matrix.os }}
+    continue-on-error: true
     needs:
       - test
       - lint

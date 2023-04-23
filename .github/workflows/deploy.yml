@@ -13,7 +13,7 @@ jobs:
       - name: Mock job
         run: echo mock
 
-  testing:
+  test:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -31,10 +31,8 @@ jobs:
       - name: Run Karma tests
         run: npm run test
 
-  linting:
+  lint:
     runs-on: ubuntu-20.04
-    needs:
-      - testing
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -54,8 +52,8 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     needs:
-      - testing
-      - linting
+      - test
+      - lint
     steps:
       - name: Checkout
         uses: actions/checkout@v3

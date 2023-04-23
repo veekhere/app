@@ -1,5 +1,11 @@
 name: Deploy
-on: push
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '.github/workflows/*'
+
 jobs:
   mock:
     runs-on: ubuntu-20.04
